@@ -28,7 +28,7 @@ font-family: 'Roboto', sans-serif; */
 body {
   background-color: var(--white-color);
   color: var(--primary-text-color);
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, inherit, sans-serif;
   letter-spacing: 0.03em;
 }
 
@@ -121,35 +121,51 @@ img {
   margin-left: 30px;
 }
 
-.shit::before {
-  content: "";
+.shit-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.shit-thumb {
+  display: flex;
+  width: 270px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F4FA;;
+}
+
+/* ///////////ДоБАВЛЕНИЕ КАРТИНОК ЧЕРЕЗ ::before!!!/////////////// */
+
+/* .shit::before {
+  content: ""; */
   /* БЛОК!!! автоматически заполняет ширину своего родителя!!! */
   /* Подстраиваем только высоту! */
-  display: block;
+  /* display: block;
   height: 120px;
   background-color: #F5F4FA;
   background-repeat: no-repeat;
   background-position: center;
-}
+} */
 
 /* Что значит этт селектор? */
 /* shit у которого есть доп класс antena! (просто дополняем Бефором) */
 /* Можно писать без Shit просто что бы было понятно тебе */
-.shit.antena::before {
+/* .shit.antena::before {
   background-image: url("../images/global/antenna\ 1.svg");
-}
+} */
 
-.shit.clock::before {
+/* .shit.clock::before {
   background-image: url("../images/global/clock\ 1.svg");
-}
+} */
 
-.shit.diagram::before {
+/* .shit.diagram::before {
   background-image: url("../images/global/diagram\ 1.svg");
-}
+} */
 
-.shit.astronaut::before {
+/* .shit.astronaut::before {
   background-image: url("../images/global/astronaut\ 1.svg");
-}
+} */
 
 /* ---SITE-NAV--- */
 
@@ -256,6 +272,7 @@ img {
   align-items: center;
   color: var(--title-text-color);
   text-decoration: none;
+  fill: var(--title-text-color);
 }
 
 .contact-lower {
@@ -263,32 +280,21 @@ img {
   text-decoration: none;
 }
 
-.contact-link::before {
-  content: "";
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.contact-link.mail::before {
-  background-image: url("../images/global/envelope\ \(hover\).svg");
-}
-
-.contact-link.tel::before {
-  background-image: url("../images/global/smartphone.svg");
-}
-
 .contact-link:hover,
 .contact-link:focus {
   color: var(--accent-color);
+  fill: var(--accent-color);
 }
 
 .contact-lower:hover,
 .contact-lower:focus {
   color: var(--accent-color);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 /* .top {
@@ -356,12 +362,16 @@ img {
   margin-bottom: 94px;
 }
 
+.section-customers {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
 /* //////___ПОДВАЛ___////// */
 
 .footer {
   padding-top: 60px;
   padding-bottom: 60px;
-  margin-bottom: 30px;
 }
 
 .footer-social {
@@ -369,37 +379,15 @@ img {
   padding-top: 12px;
 }
 
-.social-icon {
-  margin-right: 10px;
-  width: 44px;
-  height: 44px;
-  background-color: #2196F3;
-  border-radius: 50%;
-  list-style: none;
-}
-
-.insta {
-  background-image: url("../images/social-icon/instagram\ 2.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.twitt {
-  background-image: url("../images/social-icon/twitter\ 1.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.faceb {
-  background-image: url("../images/social-icon/facebook\ 1.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.linke {
-  background-image: url("../images/social-icon/linkedin\ 1.svg");
-  background-repeat: no-repeat;
-  background-position: center;
+.social-text {
+  font-family: Roboto;
+  font-style: normal;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.17;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
 }
 
 .social-list {
@@ -408,14 +396,30 @@ img {
   margin: 0;
 }
 
-.social-text {
-  margin-bottom: 20px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.17;
-  letter-spacing: 0.03em;
-  color: #FFFFFF;
+.social-item {
+  margin-right: 10px;
+  list-style: none;
+}
+
+.social-link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  fill: #ffffff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
 }
 
 /* Заголовки */
@@ -429,9 +433,8 @@ img {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  margin-top: 0;
+  margin-top: 30px;
   margin-bottom: 10px;
-  padding-top: 30px;
 }
 
 .lessons {
@@ -459,7 +462,7 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.18;
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 10px;
   text-align: center;
 }
@@ -484,12 +487,11 @@ img {
 
   .feature {
     margin-top: 0;
-    margin-bottom: 10px;
   }
 
   .post {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     text-align: center;
   }
 
@@ -574,6 +576,41 @@ img {
   display: flex;
 }
 
+.team-thumb {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.team-list-social {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-top: 16px;
+  /* margin-bottom: 30px; */
+  justify-content: center;
+}
+
+.team-link-social {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  fill: #AFB1B8;
+}
+
+.team-link-social:hover,
+.team-link-social:focus {
+  fill: #FFFFFF;
+  background-color: var(--accent-color);
+
+}
+
+.team-card-social + .team-card-social {
+  margin-left: 10px;
+}
+
 .team-card {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
   0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -627,6 +664,30 @@ img {
   padding-bottom: 20px;
 }
 
-.her {
-  
+/* //////////ОФОРМЛЕНИЕ SVG ИКОНОК/ССЫЛОК////////// */
+
+.customers-list {
+  display: flex;
+}
+
+.customers-item + .customers-item {
+  margin-left: 30px
+}
+
+.company-link {
+  display: flex;
+  width: 170px;
+  height: 92px;
+  fill: #AFB1B8;
+  border: 1px solid #AFB1B8;
+  border-radius: 4px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.company-link:hover,
+.company-link:focus {
+  fill: var(--accent-color);
+  border: 1px solid var(--accent-color);
 }
