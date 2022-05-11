@@ -273,6 +273,8 @@ img {
   color: var(--title-text-color);
   text-decoration: none;
   fill: var(--title-text-color);
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .contact-lower {
